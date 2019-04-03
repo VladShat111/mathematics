@@ -20,13 +20,13 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-lg-auto">
                   <li class="nav-item ">
-                    <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'base' %}">Home <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#table">Lessons</a>
+                    <a class="nav-link" href="#table ">Lessons</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="#aboutUs">About</a>
                   </li>
                 </ul>
               </div>
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-    <section class="section1" id="about">
+    <section class="section1" id="aboutUs">
         <div class="container h-100">
             <div class="contentBox h100">
                 <div class="row">
@@ -52,6 +52,7 @@
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="fa fa-facebook"></a>
                         <a href="https://twitter.com/home?status=I'm%20going%20to%20learn%20to%20Code...%20Come%20build%20an%20web%20apsp%20with%20me!%20%23CFE%20and%20@justinmitchel%20{{ request.build_absolute_uri }}" class="fa fa-twitter"></a>
                         <a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}' class="fa fa-google-plus"></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}/&title=Be%20first%20%7C%20Join%20Swift%20for%20Entrepreneurs&summary=Swift%20for%20Entrepreneurs%20is%20a%20project-based%20programming%20course%20for%20non-technical%20founders.%20We'll%20learn%20how%20to%20build%20iOS%20apps%20from%20scratch%20using%20Apple's%20new%20programming%20language:%20Swift.%20Be%20first%20and%20learn%20with%20me!&source={{ request.build_absolute_uri }}" class="fa fa-linkedin"></a>
                     </div>
                 </div>
             </div>
@@ -63,43 +64,37 @@
         <div class="container h-100">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="text-center tableSec">Choose your lesson</h1>
+                    <h1 class="text-center tableSec">Choose your class</h1>
                 </div>
                 <div class="col-lg-12">
+
                    <table class="table table-striped table-dark">
                           <thead>
                             <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">First</th>
-                              <th scope="col">Last</th>
-                              <th scope="col">Handle</th>
+                              <th scope="col">№</th>
+                              <th scope="col">Pages with examples</th>
+                              <th scope="col">Pages with answers</th>
+                              <th scope="col">File for download</th>
                             </tr>
                           </thead>
+                       {% for class in data %}
                           <tbody>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>Mark</td>
-                              <td>Otto</td>
-                              <td>@mdo</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>Jacob</td>
-                              <td>Thornton</td>
-                              <td>@fat</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>Larry</td>
-                              <td>the Bird</td>
-                              <td>@twitter</td>
+                              <th scope="row">{{ class.name }}</th>
+                              <td>30 pages</td>
+                              <td>30 pages</td>
+                                <td><a class="btn btn-outline-info" href="{{ class.file_question.url }}" download>Questions</a> <a class="btn btn-outline-info" href="{{ class.file_answers.url }}" download>Answers</a></td>
                             </tr>
                           </tbody>
+                       {% endfor %}
                    </table>
+
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <footer>
         <div class="container">
