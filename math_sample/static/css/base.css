@@ -83,6 +83,13 @@
     background-color: black;
 }
 
+#shareButton{
+    margin-left: 35rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+
 #aboutusSection{
     margin-top: 180px;
 }

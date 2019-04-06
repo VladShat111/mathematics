@@ -5,6 +5,7 @@
     <link  href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link  href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
     <link  href="{% static 'css/base.css' %}" rel="stylesheet">
+
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -58,11 +59,14 @@
                         Pavlo & Vlad
 
                     </p></div>
-                    <div class="col-lg-12">
+                    <a class="fa fa-share-alt" id="shareButton" data-toggle="collapse" href="#multiCollapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"></a>
+                    <div class="collapse multi-collapse" id="multiCollapse">
+                      <div class="card card-body">
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="fa fa-facebook"></a>
                         <a href="https://twitter.com/home?status=I'm%20going%20to%20learn%20to%20Code...%20Come%20build%20an%20web%20apsp%20with%20me!%20%23CFE%20and%20@justinmitchel%20{{ request.build_absolute_uri }}" class="fa fa-twitter"></a>
                         <a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}' class="fa fa-google-plus"></a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}/&title=Be%20first%20%7C%20Join%20Swift%20for%20Entrepreneurs&summary=Swift%20for%20Entrepreneurs%20is%20a%20project-based%20programming%20course%20for%20non-technical%20founders.%20We'll%20learn%20how%20to%20build%20iOS%20apps%20from%20scratch%20using%20Apple's%20new%20programming%20language:%20Swift.%20Be%20first%20and%20learn%20with%20me!&source={{ request.build_absolute_uri }}" class="fa fa-linkedin"></a>
+                        <a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}" class="fa fa-linkedin"></a>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -82,18 +86,16 @@
                           <thead>
                             <tr>
                               <th scope="col">№</th>
-                              <th scope="col">Pages with examples</th>
-                              <th scope="col">Pages with answers</th>
-                              <th scope="col">File for download</th>
+                              <th scope="col">File name question</th>
+                              <th scope="col">File name answers</th>
                             </tr>
                           </thead>
                        {% for class in data %}
                           <tbody>
                             <tr>
                               <th scope="row">{{ class.name }}</th>
-                              <td>30 pages</td>
-                              <td>30 pages</td>
-                                <td><a class="btn btn-outline-info" href="{{ class.file_question.url }}" download>Questions</a> <a class="btn btn-outline-info" href="{{ class.file_answers.url }}" download>Answers</a></td>
+                              <td><a class="btn btn-outline-info" href="{{ class.file_question.url }}" download>{{ class.file_question }}</a></td>
+                              <td><a class="btn btn-outline-info" href="{{ class.file_answers.url }}" download>{{ class.file_answers }}</a></td>
                             </tr>
                           </tbody>
                        {% endfor %}
@@ -131,8 +133,10 @@
         </div>
     </footer>
 
-<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
 <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
 <script type="text/javascript">
 	$(document).scroll(function(){
 		$('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());

@@ -9,4 +9,4 @@ class Lesson(models.Model):
     file_answers = models.FileField(upload_to='answers', null=True)
 
     def __str__(self):
-        return self.name
+        return self.name, self.file_question[9:1]
