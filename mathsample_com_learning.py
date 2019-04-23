@@ -8,12 +8,24 @@
 # Professional_jump
 
 
-#import mathsample_com_learning_module_of_logic
+# import mathsample_com_learning_module_of_logic
 
-import proba123
+
 import random
-from PG80_Math_program_Data_info import Beginner_jump, Easy_jump, Standart_jump, Hardcore_jump, Professional_jump
+from mathsample_com_Controller import counter
+from mathsample_com_Data_info import Beginner_jump, Easy_jump, Standart_jump, Hardcore_jump, Professional_jump
 
+
+
+"""Class to calculate of user behavior"""
+"""
+def __init__(self, number_of_correct_answers, number_of_incorrect_answers, amount_of_time_spent_on_one_example,
+             amount_of_time_spent_on_one_section):
+    self.number_of_correct_answers = number_of_correct_answers
+    self.number_of_incorrect_answers = number_of_incorrect_answers
+    self.amount_of_time_spent_on_one_example = amount_of_time_spent_on_one_example
+    self.amount_of_time_spent_on_one_section = amount_of_time_spent_on_one_section
+"""
 
 class BasicLogicForFirstApp:
 
@@ -24,7 +36,7 @@ class BasicLogicForFirstApp:
         self.number02 = number02
         self.equals_sign = equals_sign
         self.answer = answer
-
+    @counter
     def check_answer(self, try_answer):
         return try_answer == self.answer
 
@@ -43,35 +55,32 @@ for serial_number, number01, sign, number02, equals_sign, answer in Beginner_jum
     current_question = BasicLogicForFirstApp(serial_number, number01, sign, number02, equals_sign, answer)
     question_list.append(current_question)
 
-
-
-
     if current_question.check_answer(input('What answer?')):
         first_is_correct_some_good_worlds = [
-        'Unbelievable!',
-        'Super!',
-        'Wow! Brilliant!',
-        'Amazing!',
-        'Awesome!',
-        'Wonderful',
-        'Perfect',
-        'Cosmically cool!',
-        'Charmingly!',
-        'Aborably!',
-        'Inspiring',
-        'Breathtaking!',
-        'Spectacularly',
-        'It’s impossible!',
-        'It can’t be true!',
-        'I can’t believe it!',
-        'Incredible!',
-        'I’m speechless!',
-        'How amazing!',
-        'I am astounded!',
-        'I am shocked!',
-        'That’s a good one!',
-        'I can’t imagine you did that!',
-        'I’ll believe it when pigs fly!',
+            'Unbelievable!',
+            'Super!',
+            'Wow! Brilliant!',
+            'Amazing!',
+            'Awesome!',
+            'Wonderful',
+            'Perfect',
+            'Cosmically cool!',
+            'Charmingly!',
+            'Aborably!',
+            'Inspiring',
+            'Breathtaking!',
+            'Spectacularly',
+            'It’s impossible!',
+            'It can’t be true!',
+            'I can’t believe it!',
+            'Incredible!',
+            'I’m speechless!',
+            'How amazing!',
+            'I am astounded!',
+            'I am shocked!',
+            'That’s a good one!',
+            'I can’t imagine you did that!',
+            'I’ll believe it when pigs fly!',
         ]
         print(random.choice(first_is_correct_some_good_worlds))
 
@@ -106,14 +115,12 @@ for serial_number, number01, sign, number02, equals_sign, answer in Beginner_jum
         incorrect = []
         incorrect.append(current_question)
 
-
 for serial_number, number01, sign, number02, equals_sign, answer in Easy_jump_for_use:
     print(number01, sign, number02, equals_sign, answer)
     current_question = BasicLogicForFirstApp(serial_number, number01, sign, number02, equals_sign, answer)
     question_list.append(current_question)
     while not current_question.check_answer(input('Enter answer, please')):
         print('This is not correct answer, try one more')
-
 
 for serial_number, number01, sign, number02, equals_sign, answer in Standart_jump_for_use:
     print(number01, sign, number02, equals_sign, answer)
@@ -122,7 +129,6 @@ for serial_number, number01, sign, number02, equals_sign, answer in Standart_jum
     while not current_question.check_answer(input('Enter answer, please')):
         print('This is not correct answer, try one more')
 
-
 for serial_number, number01, sign, number02, equals_sign, answer in Hardcore_jump_for_use:
     print(number01, sign, number02, equals_sign, answer)
     current_question = BasicLogicForFirstApp(serial_number, number01, sign, number02, equals_sign, answer)
@@ -130,29 +136,10 @@ for serial_number, number01, sign, number02, equals_sign, answer in Hardcore_jum
     while not current_question.check_answer(input('Enter answer, please')):
         print('This is not correct answer, try one more')
 
-
 for serial_number, number01, sign, number02, equals_sign, answer in Professional_jump_for_use:
     print(number01, sign, number02, equals_sign, answer)
     current_question = BasicLogicForFirstApp(serial_number, number01, sign, number02, equals_sign, answer)
     question_list.append(current_question)
     while not current_question.check_answer(input('Enter answer, please')):
         print('This is not correct answer, try one more')
-
-
-
-#total = 3
-#while total != 0:
-
-#    total -= 1
- #   print("Ресурс исчерпан")
-
-
-#    countDown = 3
-#    while (countDown >= 0):
-#        print(countDown)
-#        countDown = countDown - 1
-#        if countDown == 0:
-#            print("Finish Action from ")
-#            break
-
 
