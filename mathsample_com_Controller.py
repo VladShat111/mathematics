@@ -1,5 +1,5 @@
 import time
-
+#from mathsample_com_learning import CountCorrect
 
 def benchmark(func):
     """ Декоратор, выводящий время, которое заняло выполнение декорируемой функции """
@@ -9,6 +9,7 @@ def benchmark(func):
         res = func(*args, **kwargs)
         print()
         func.__name__, time.clock() - t
+
         return res
 
     return wrapper
@@ -26,12 +27,36 @@ def logging(func):
     return wrapper
 
 
-def counter(func):
+def CounterOfShowQuantityOfSamles(func):
     def wrapper(*args, **kwargs):
         wrapper.count += 1
         res = func(*args, **kwargs)
-        print("{0} была вызвана: {1}x".format(func.__name__, wrapper.count))
+        print("{0} Номер примера: {1}x".format(func.__name__, wrapper.count))
         return res
 
     wrapper.count = 0
     return wrapper
+
+
+def СounterOfUnswers(func):
+    def wrapper(*args, **kwargs):
+        wrapper.count += 1
+        res = func(*args, **kwargs)
+        print("{0} Количество ответов: {1}x".format(func.__name__, wrapper.count))
+        return res
+
+    wrapper.count = 0
+    return wrapper
+
+
+def generalCountCorrect(answer):
+    def counterOfCorrectUnswers(func):
+        def wrapper(*args, **kwargs):
+            if answer:
+                wrapper.count += 1
+                res = func(*args, **kwargs)
+                print("{0} Количество правильных ответов: {1}x".format(func.__name__, wrapper.count))
+                return res
+
+        wrapper.count = 0
+        return wrapper
