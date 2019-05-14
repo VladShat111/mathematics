@@ -6,7 +6,7 @@ from .models import Lesson
 def base(request):
     data = Lesson.objects.all()
     context = {'data': data}
-    return render(request, 'math_sample/base.html', context)
+    return render(request, 'math_sample/index.html', context)
 
 
 

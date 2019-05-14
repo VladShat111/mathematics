@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mathsample</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="{% static 'css/reset.css' %}">
+	<link rel="stylesheet" href="{% static 'css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+	<div class="big-block header">
+		<div class="block">
+			<a href="" class="logo">
+				<img src="{% static 'images/logo.png' %}" alt="Mathsample.com">
+			</a>
+			<nav>
+				<a class="header-nav" href="#lessons">Lessons</a>
+				<a class="header-nav" href="#trainer">Trainer</a>
+				<a class="header-nav" href="#about">About</a>
+			</nav>
+		</div>
+	</div>
+	<div class="big-block baner">
+	</div>
+	<div class="big-block" id="lessons">
+		<div class="block classes-block">
+            {% for class in data  %}
+			<div class="class-block">
+				<p class="class-header">{{ class.name }}</p>
+				<div class="class-body">
+					<a class="class-link class-link-pdf" href="{{ class.file_question.url }}" download></a>
+					<a class="class-link class-link-pdf" href="{{ class.file_answers.url }}" download></a>
+					<div class="social class-social">
+						<a class="social-icon social-icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"></a>
+						<a class="social-icon social-icon-twitter" href="https://twitter.com/home?status=I'm%20going%20to%20learn%20to%20Code...%20Come%20build%20an%20web%20apsp%20with%20me!%20%23CFE%20and%20@justinmitchel%20{{ request.build_absolute_uri }}"></a>
+						<a class="social-icon social-icon-linkedin" href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}"></a>
+						<a class="social-icon social-icon-googleplus" href="https://plus.google.com/share?url={{ request.build_absolute_uri }}"></a>
+					</div>
+				</div>
+			</div>
+            {% endfor %}
+
+		</div>
+	</div>
+	<div class="big-block traine" id="trainer">
+		<div class="block">
+			<div class="calc">
+				<p class="calc-header">1 + 2 = <span>?</span></p>
+				<div class="calc-numbers">
+					<div class="calc-number">1</div>
+					<div class="calc-number">2</div>
+					<div class="calc-number">3</div>
+					<div class="calc-number">4</div>
+					<div class="calc-number">5</div>
+					<div class="calc-number">6</div>
+					<div class="calc-number">7</div>
+					<div class="calc-number">8</div>
+					<div class="calc-number">9</div>
+					<div class="calc-number">0</div>
+					<div class="calc-ready">ready</div>
+				</div>
+			</div>
+			<div class="train-else">
+				<div class="train-news-baner">
+					<img src="{% static 'images/news-baner.png' %}" alt="">
+				</div>
+				<div class="train-carousel-block">
+					<div class="train-carousel">
+					<div>
+						<img src="{% static 'images/mathematical_example.png' %}" alt="">
+					</div>
+					<div>
+						<img src="{% static 'images/mathematical_example.png' %}" alt="">
+					</div>
+					<div>
+						<img src="{% static 'images/mathematical_example.png' %}" alt="">
+					</div>
+					<div>
+						<img src="{% static 'images/mathematical_example.png' %}" alt="">
+					</div>
+				</div>
+				</div>
+				
+			</div> 
+		</div>
+	</div>
+	<div class="big-block about-us" id="about">
+		<div class="block">
+			<h2>about us</h2>
+			<p>
+                We are two programmers (Pavlo Golovachov and Vlad Shatalyuk) who strive for the development of society.
+                        We are completely open to the new and therefore everything on the website is free.
+
+                        The most important thing: Train on tasks every day and the result will be sure!
+                        Learn and train: you and your children will have a good future!
+
+                        Respectfully,
+                        Pavlo & Vlad
+				<br><br>Researches in mathematics education are primarily concerned with the tools, methods and approaches that facilitate practice or the study of practice; however, mathematics education research, known on the continent of Europe as the didactics or pedagogy of mathematics, has developed into an extensive field of study, with its own concepts, theories, methods, national and international organisations, conferences and literature. This article describes some of the history, influences and recent controversies.
+
+                <form class="text-center" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick" >
+                    <input type="hidden" name="hosted_button_id" value="P7VHUW943PDEE">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">
+                    <img alt="" border="0" src="https://www.paypal.com/en_UA/i/scr/pixel.gif" width="5" height="5" >
+                </form>
+            </p>
+			<div class="social">
+				<a class="social-icon social-icon-facebook" href="#"></a>
+				<a class="social-icon social-icon-twitter" href="#"></a>
+				<a class="social-icon social-icon-linkedin" href="#"></a>
+				<a class="social-icon social-icon-googleplus" href="#"></a>
+			</div>
+		</div>
+	</div>
+	<div class="big-block bottom"></div>
+	<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+</body>
+</html>
