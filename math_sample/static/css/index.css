@@ -342,6 +342,12 @@ body {
 	font-weight: 400;
 	margin-top: 90px;
 }
+
+.about-us form {
+	text-align: center;
+	margin-top: 50px;
+}
+
 .about-us .social{
 	margin-top: 90px;
 }
