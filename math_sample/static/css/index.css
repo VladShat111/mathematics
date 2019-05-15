@@ -118,6 +118,12 @@ body {
 	display: inline-block;
 	margin: 13px
 }
+
+.big-block form {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
 .class-header{
 	color: #1b3e4b;
 	font-family: "BebasNeueRegular";
@@ -341,11 +347,6 @@ body {
 	font-size: 28px;
 	font-weight: 400;
 	margin-top: 90px;
-}
-
-.about-us form {
-	text-align: center;
-	margin-top: 50px;
 }
 
 .about-us .social{
